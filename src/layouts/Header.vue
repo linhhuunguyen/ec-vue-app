@@ -1,55 +1,72 @@
 <template>
-  <div>
-    <p><fa icon="envelope" /> mhhasanul@gmail.com</p>
-    <p><fa icon="phone" /> (12345) 67890</p>
-    <a-select
-      v-model:value="value"
-      style="width: 120px"
-      :options="items.map((item) => ({ value: item }))"
-    >
-      <template #dropdownRender="{ menuNode: menu }">
-        <v-nodes :vnodes="menu" />
-        <a-divider style="margin: 4px 0" />
-        <div
-          style="padding: 4px 8px; cursor: pointer"
-          @mousedown="(e) => e.preventDefault()"
-          @click="addItem"
-        >
-          <plus-outlined />
-          Add item
+  <div class="container mx-auto py-4">
+    <div class="flex items-center">
+      <div class="flex-1 flex items-center">
+        <div class="logo">
+          <img src="../assets/logo.png" alt="logo" class="w-32" />
         </div>
-      </template>
-    </a-select>
+        <div class="ml-5 flex">
+          <div class="flex items-center">
+            <button>
+              <MenuIcon />
+            </button>
+            <span class="ml-2">Menu</span>
+          </div>
+          <div class="ml-2">Sale</div>
+        </div>
+        <div class="ml-5">
+          <a-input-search
+            v-model:value="value"
+            placeholder="input search text"
+            style="width: 200px"
+          />
+        </div>
+      </div>
+
+      <div class="ml-10 flex">
+        <div>cart</div>
+        <div>Shipping</div>
+        <div>Notification</div>
+        <div>Account</div>
+      </div>
+    </div>
   </div>
 </template>
+
 <script lang="ts">
-import { Vue } from "vue-class-component";
-import { PlusOutlined } from "@ant-design/icons-vue";
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
+import { Options, Vue } from "vue-class-component";
 
-let index = 0;
-export default defineComponent({
-  components: {
-    PlusOutlined,
-    VNodes: (_, { attrs }) => {
-      return attrs.vnodes;
-    },
-  },
+import MenuIcon from "../assets/icons/menu-icon.vue";
 
-  setup() {
-    const items = ref(["jack", "lucy"]);
-    const value = ref("lucy");
-
-    const addItem = () => {
-      console.log("addItem");
-      items.value.push(`New item ${index++}`);
-    };
-    return {
-      items,
-      value,
-      addItem,
-    };
-  },
-});
+@Options({
+  components: { MenuIcon },
+})
+export default class Header extends Vue {}
 </script>
-<style lang="scss"></style>
+<style>
+.container {
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+</style>
