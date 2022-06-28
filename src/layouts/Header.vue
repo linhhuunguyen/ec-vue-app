@@ -14,9 +14,9 @@
           </div>
           <div class="ml-2">Sale</div>
         </div>
-        <div class="ml-5">
+        <div class="ml-5 w-full">
           <a-input-search
-            class="hello"
+            class="search-input"
             v-model:value="value"
             placeholder="input search text"
             style="width: 200px"
@@ -27,7 +27,7 @@
 
       <div class="ml-10 flex">
         <div class="flex mx-5">
-          <CardIcon />
+          <CardIcon class="mr-2" />
           <span>0</span>
         </div>
         <div class="mx-5">
@@ -41,6 +41,7 @@
         </div>
       </div>
     </div>
+    <SliderHeader/>
   </div>
 </template>
 
@@ -50,13 +51,15 @@ import CardIcon from "../assets/icons/card-icon.vue";
 import ShippingIcon from "../assets/icons/shipping-icon.vue";
 import NotificationIcon from "../assets/icons/notification-icon.vue";
 import UserIcon from "../assets/icons/user-icon.vue";
+import SliderHeader from '../components/slider-header/SliderHeader.vue'
+
 
 export default {
   name: "Header",
-  components: { MenuIcon, CardIcon, ShippingIcon, NotificationIcon, UserIcon },
+  components: {SliderHeader, MenuIcon, CardIcon, ShippingIcon, NotificationIcon, UserIcon },
   data() {
     return {
-      value: "linkkkkk",
+      value: "",
     };
   },
   methods: {
@@ -67,9 +70,13 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="css">
 .container {
   width: 100%;
+}
+
+.search-input {
+  width: 100% !important;
 }
 
 @media (min-width: 1280px) {
