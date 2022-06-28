@@ -16,33 +16,56 @@
         </div>
         <div class="ml-5">
           <a-input-search
+            class="hello"
             v-model:value="value"
             placeholder="input search text"
             style="width: 200px"
+            @change="onSearch"
           />
         </div>
       </div>
 
       <div class="ml-10 flex">
-        <div>cart</div>
-        <div>Shipping</div>
-        <div>Notification</div>
-        <div>Account</div>
+        <div class="flex mx-5">
+          <CardIcon />
+          <span>0</span>
+        </div>
+        <div class="mx-5">
+          <ShippingIcon />
+        </div>
+        <div class="mx-5">
+          <NotificationIcon />
+        </div>
+        <div class="ml-5">
+          <UserIcon />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
-import { Options, Vue } from "vue-class-component";
-
 import MenuIcon from "../assets/icons/menu-icon.vue";
+import CardIcon from "../assets/icons/card-icon.vue";
+import ShippingIcon from "../assets/icons/shipping-icon.vue";
+import NotificationIcon from "../assets/icons/notification-icon.vue";
+import UserIcon from "../assets/icons/user-icon.vue";
 
-@Options({
-  components: { MenuIcon },
-})
-export default class Header extends Vue {}
+export default {
+  name: "Header",
+  components: { MenuIcon, CardIcon, ShippingIcon, NotificationIcon, UserIcon },
+  data() {
+    return {
+      value: "linkkkkk",
+    };
+  },
+  methods: {
+    onSearch(event: Event) {
+      const { value } = event.target as HTMLInputElement;
+      console.log("value", value);
+    },
+  },
+};
 </script>
 <style>
 .container {
