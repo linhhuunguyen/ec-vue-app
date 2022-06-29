@@ -41,17 +41,18 @@
         </div>
       </div>
     </div>
-    <SliderHeader/>
+    <SliderHeader :images="carouselSlides"/>
   </div>
 </template>
 
 <script lang="ts">
-import MenuIcon from "../assets/icons/menu-icon.vue";
-import CardIcon from "../assets/icons/card-icon.vue";
-import ShippingIcon from "../assets/icons/shipping-icon.vue";
-import NotificationIcon from "../assets/icons/notification-icon.vue";
-import UserIcon from "../assets/icons/user-icon.vue";
-import SliderHeader from '../components/slider-header/SliderHeader.vue'
+import MenuIcon from "@/assets/icons/menu-icon.vue";
+import CardIcon from "@/assets/icons/card-icon.vue";
+import ShippingIcon from "@/assets/icons/shipping-icon.vue";
+import NotificationIcon from "@/assets/icons/notification-icon.vue";
+import UserIcon from "@/assets/icons/user-icon.vue";
+import SliderHeader from '@/components/slider-header/SliderHeader.vue'
+import {Menu} from '@/components/slider-header/countant'
 
 
 export default {
@@ -60,6 +61,7 @@ export default {
   data() {
     return {
       value: "",
+      carouselSlides: Menu
     };
   },
   methods: {
