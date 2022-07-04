@@ -83,4 +83,8 @@ export const Menu = [
     name: "Laptop",
     url: "https://media-api-beta.thinkpro.vn/media/core/categories/2021/12/29/Rectangle%201461-9.png",
   },
+  {
+    name: "Laptop",
+    url: "https://media-api-beta.thinkpro.vn/media/core/categories/2021/12/29/Rectangle%201461-9.png",
+  },
 ];
